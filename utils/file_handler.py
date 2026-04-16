@@ -1,4 +1,4 @@
-import pandas as pd # pyright: ignore[reportMissingModuleSource]
+import pandas as pd 
 
 def load_csv(file):
     try:
