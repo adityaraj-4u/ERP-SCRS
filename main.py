@@ -11,22 +11,22 @@ from utils.charts import generate_analytics_dashboard
 
 def main():
     print("==================================================")
-    print("🎓 Welcome to the ERP Course Registration System")
+    print(" Welcome to the ERP Course Registration System")
     print("==================================================")
 
     raw_sid = input("Enter Student ID: ")
     try:
-        # Use Week 11 Validator to ensure ID isn't blank
+        
         sid = InputValidator.validate_student_id(raw_sid)
     except RegistrationError as e:
-        print(f"❌ Validation Error: {e}")
+        print(f"Validation Error: {e}")
         return
 
-    # Authenticate student
+    
     student = login(sid)
 
     if not student:
-        print("❌ Invalid ID or student not found in database.")
+        print("Invalid ID or student not found in database.")
         return
 
     print(f"\nWelcome {student.name} | Program: {student.program}")
@@ -69,14 +69,14 @@ def main():
                     continue
                 if check_clash(selected, course):
                     print(f" Time clash detected! {course.code} overlaps with your schedule.")
-                    print("\n💡 AI Suggestion Engine: Try these clash-free alternatives instead:")
+                    print("\n AI Suggestion Engine: Try these clash-free alternatives instead:")
                     
-                    # Fetch suggestions
+                    
                     alts = suggest_alternatives(student, selected, courses)
                     
                     if alts:
                         for alt in alts:
-                            print(f"   👉 [{alt.code}] {alt.name} | {alt.schedule[0]} at {alt.schedule[1]} ({alt.seats_available()} seats)")
+                            print(f"    [{alt.code}] {alt.name} | {alt.schedule[0]} at {alt.schedule[1]} ({alt.seats_available()} seats)")
                     else:
                         print("   Sorry, no alternate courses fit your schedule and prerequisites right now.")
                     continue
@@ -85,7 +85,7 @@ def main():
                 selected.append(course)
             
             except RegistrationError as e:
-                print(f"❌ Validation Error: {e}")
+                print(f" Validation Error: {e}")
 
         elif ch == '3':
             try:
@@ -95,21 +95,21 @@ def main():
                 course = next((c for c in selected if c.code == code), None)
 
                 if not course:
-                    print("❌ You have not registered for this course in this session.")
+                    print("You have not registered for this course in this session.")
                     continue
 
                 drop_course(student, course)
                 selected.remove(course)
             
             except RegistrationError as e:
-                print(f"❌ Validation Error: {e}")
+                print(f" Validation Error: {e}")
 
         elif ch == '4':
-            print("\n📊 Generating Matplotlib Dashboard...")
+            print("\n Generating Matplotlib Dashboard...")
             generate_analytics_dashboard()
 
         elif ch == '5':
-            print("\n--- 👨‍🏫 Advisor Approval Panel ---")
+            print("\n---  Advisor Approval Panel ---")
             pending = view_pending_requests()
             if not len(pending) == 0:
                 try:
@@ -120,9 +120,9 @@ def main():
                     elif decision == 'R':
                         process_request(req_id, "Rejected")
                     else:
-                        print("❌ Invalid decision. Please enter A or R.")
+                        print(" Invalid decision. Please enter A or R.")
                 except ValueError:
-                    print("❌ Invalid ID format. Please enter a number.")
+                    print(" Invalid ID format. Please enter a number.")
 
         elif ch == '6':
             calculate_department_load()
@@ -132,7 +132,7 @@ def main():
             sys.exit()
 
         else:
-            print("❌ Invalid choice. Please enter a number between 1 and 7.")
+            print(" Invalid choice. Please enter a number between 1 and 7.")
 
 if __name__ == "__main__":
     main()
