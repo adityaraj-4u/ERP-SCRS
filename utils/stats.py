@@ -12,15 +12,15 @@ def calculate_department_load():
         print("Not enough data to calculate stats.")
         return
 
-    # Count how many times each course appears in the registrations database
+    
     enrollment_counts = df_regs['course_code'].value_counts().values
     
     if len(enrollment_counts) > 0:
-        # Use NumPy to calculate statistical data
+        
         avg_enrollment = np.mean(enrollment_counts)
         max_enrollment = np.max(enrollment_counts)
         
-        print("\n--- 📈 NumPy Analytics Report ---")
+        print("\n--- NumPy Analytics Report ---")
         print(f"Average students per active course: {avg_enrollment:.1f}")
         print(f"Highest enrollment count in a single course: {max_enrollment}")
     else:
