@@ -12,7 +12,7 @@ def view_pending_requests():
 
     pending = df[df['status'] == 'Pending']
     if pending.empty:
-        print("✅ No pending requests at this time.")
+        print(" No pending requests at this time.")
         return []
         
     for index, row in pending.iterrows():
@@ -24,9 +24,9 @@ def process_request(index_id, decision):
     df = load_csv("data/registrations.csv")
     
     try:
-        # Update the status based on the row index
+        
         df.loc[index_id, 'status'] = decision
         save_csv(df, "data/registrations.csv")
-        print(f"✅ Request #{index_id} has been marked as: {decision}")
+        print(f" Request #{index_id} has been marked as: {decision}")
     except KeyError:
-        print("❌ Invalid request ID.")
+        print(" Invalid request ID.")
