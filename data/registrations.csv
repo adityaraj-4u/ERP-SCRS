@@ -1,0 +1,5 @@
+student_id,course_code,status
+101,CS201,Approved
+102,CS101,Approved
+101,CS101,
+101,CS201,

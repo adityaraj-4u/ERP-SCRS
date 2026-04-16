@@ -1,0 +1,6 @@
+code,name,credits,seats,day,time,prereqs,faculty
+CS101,Python Basics,3,50,MON,09:00,None,Dr. Smith
+CS201,Data Structures,4,40,MON,10:00,CS101,Prof. Davis
+CS301,Database Systems,4,0,TUE,14:00,CS101,Dr. Alan
+EE101,Basic Electronics,3,60,MON,09:00,None,Prof. Tesla
+CS401,Advanced AI,4,30,WED,11:00,CS201|CS301,Dr. Turing
