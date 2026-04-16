@@ -3,4 +3,4 @@ class Student:
         self.id = str(student_id)
         self.name = name
         self.program = program
-        self.completed = completed   # ✅ use ONLY this
+        self.completed = completed   
